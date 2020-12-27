@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\DModelRequest;
+use App\Jobs\ModelJob;
+use App\Models\DModel;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class DModelCrudController
@@ -16,7 +19,9 @@ class DModelCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation {
+        destroy as traitDestroy;
+    }
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
     /**
@@ -49,9 +54,11 @@ class DModelCrudController extends CrudController
          */
 
         CRUD::column('id');
-        CRUD::column('model name');
-        CRUD::column('split data');
+        CRUD::column('model_name');        
+        CRUD::column('data_split');
         CRUD::column('accuracy');
+        $this->crud->denyAccess('update');
+        $this->crud->denyAccess('show');
     }
 
     /**
@@ -61,7 +68,7 @@ class DModelCrudController extends CrudController
      * @return void
      */
     protected function setupCreateOperation()
-    {        
+    {
         CRUD::setValidation(DModelRequest::class);
 
 
@@ -76,39 +83,39 @@ class DModelCrudController extends CrudController
             'label'     => "Kategori Dataset",
             'type'      => 'select',
             'name'      => 'category_id', // the db column for the foreign key
-            
+
             // optional 
             // 'entity' should point to the method that defines the relationship in your Model
             // defining entity will make Backpack guess 'model' and 'attribute'
-            'entity'    => 'category', 
-            
+            'entity'    => 'category',
+
             // optional - manually specify the related model and attribute
             'model'     => "App\Models\Category", // related model
             'attribute' => 'category', // foreign key attribute that is shown to user
-        ]);        
-        
-         CRUD::addfield([
+        ]);
+
+        CRUD::addfield([
             'name' => 'model_name',
             'label' => 'Nama Model',
             'type' => 'text',
             'attributes' => [
                 'placeholder' => 'Masukkan nama model'
             ]
-        ]);  
-        
+        ]);
+
         CRUD::addfield([   // Textarea
             'name'  => 'model_desc',
             'label' => 'Deskripsi Model',
             'type'  => 'textarea'
         ]);
-        
+
         CRUD::addfield([   // Number
             'name' => 'data_split',
             'label' => 'Persentase Data Training',
             'type' => 'number',
-        
+
             // optionals
-            'attributes' => [                
+            'attributes' => [
                 'placeholder' => 'Min: 50%, Max:90% '
             ], // allow decimals            
             'suffix'     => "%",
@@ -140,6 +147,17 @@ class DModelCrudController extends CrudController
 
     public function store(DmodelRequest $request)
     {
-        // dd(request()->all());
+        dispatch(new ModelJob(request()->all()));
+        \Alert::add('success', 'Model sedang dibuat')->flash();
+        return \Redirect::to($this->crud->route);
+    }
+
+    public function destroy($id)
+    {                
+        $model_name = DModel::select('model_name')->where('id',$id)->first();
+        unlink(storage_path() . '/model/' . $model_name->model_name . '.model');        
+        $this->crud->hasAccessOrFail('delete');
+
+        return $this->crud->delete($id);
     }
 }

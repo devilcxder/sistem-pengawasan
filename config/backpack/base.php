@@ -24,7 +24,7 @@ return [
     // ----
 
     // Project name. Shown in the window title.
-    'project_name' => 'Backpack Admin Panel',
+    'project_name' => 'Sistem Monitoring COVID-19',
 
     // When clicking on the admin panel's top-left logo/name,
     // where should the user be redirected?
@@ -52,6 +52,7 @@ return [
         // Load the fonts separately (so that you can replace them at will):
         'packages/source-sans-pro/source-sans-pro.css',
         'packages/line-awesome/css/line-awesome.min.css',
+        'packages/loader/loader.css',
 
         // Example (the fonts above, loaded from CDN instead)
         // 'https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css',
@@ -71,7 +72,7 @@ return [
     // ------
 
     // Menu logo. You can replace this with an <img> tag if you have a logo.
-    'project_logo'   => '<b>Back</b>pack',
+    'project_logo'   => '<b>Sistem</b>Monitoring',
 
     // Show / hide breadcrumbs on admin panel pages.
     'breadcrumbs' => true,
@@ -123,7 +124,8 @@ return [
         'packages/backpack/base/js/bundle.js',
 
         // examples (everything inside the bundle, loaded from CDN)
-        // 'https://code.jquery.com/jquery-3.4.1.min.js',
+        'https://code.jquery.com/jquery-3.4.1.min.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js',
         // 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js',
         // 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js',
         // 'https://unpkg.com/@coreui/coreui/dist/js/coreui.min.js',

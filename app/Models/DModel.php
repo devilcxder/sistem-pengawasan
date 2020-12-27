@@ -9,6 +9,7 @@ class DModel extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
+    protected $fillable = ['category_id','model_name','model_desc','data_split','accuracy'];
 
     public function category()
     {
