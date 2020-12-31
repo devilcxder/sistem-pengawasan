@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DModel extends Model
+class Tweet extends Model
 {
     use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
-    protected $fillable = ['category_id','model_name','model_desc','data_split','accuracy'];
-
-    public function category()
+    public $timestamps = false;
+    
+    public function detail_tweet()
     {
-        return $this->belongsTo(Category::class);
+        return $this->hasOne(DetailTweet::class);
     }    
 }

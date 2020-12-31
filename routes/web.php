@@ -2,6 +2,7 @@
 
 use App\Preprocessing\PreprocessingService;
 use Illuminate\Support\Facades\Route;
+use Thujohn\Twitter\Facades\Twitter;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,5 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $tweets = Twitter::getSearch(['q' => 'COVID -RT', 'tweet_mode' => 'extended', 'lang' => 'id', 'count' => 10, 'format' => 'array']);    
+    dd($tweets);
 });

@@ -126,6 +126,8 @@ return [
         // examples (everything inside the bundle, loaded from CDN)
         'https://code.jquery.com/jquery-3.4.1.min.js',
         'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js',
+        'https://cdn.jsdelivr.net/npm/chart.js@2.8.0',
         // 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js',
         // 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js',
         // 'https://unpkg.com/@coreui/coreui/dist/js/coreui.min.js',

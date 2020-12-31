@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6f930437482977c918ee622f216e9d4a",
+    "content-hash": "be2f4eee4f60233e9b6d62b6157bc81c",
     "packages": [
         {
             "name": "amphp/amp",
@@ -521,6 +521,57 @@
             "time": "2020-10-29T16:03:21+00:00"
         },
         {
+            "name": "atymic/tmhoauth",
+            "version": "0.8.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/atymic/tmhOAuth.git",
+                "reference": "f24746d8ef2a44f62d0cbca9f3fcc3a320c99e05"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/atymic/tmhOAuth/zipball/f24746d8ef2a44f62d0cbca9f3fcc3a320c99e05",
+                "reference": "f24746d8ef2a44f62d0cbca9f3fcc3a320c99e05",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "tmhOAuth": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "themattharris",
+                    "email": "matt@themattharris.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "atymic",
+                    "email": "atymicq@gmail.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "A maintained fork of themattharris/tmhOAuth",
+            "keywords": [
+                "oauth",
+                "twitter"
+            ],
+            "support": {
+                "issues": "https://github.com/atymic/tmhOAuth/issues",
+                "source": "https://github.com/atymic/tmhOAuth/tree/master"
+            },
+            "time": "2020-06-21T00:50:34+00:00"
+        },
+        {
             "name": "backpack/crud",
             "version": "4.1.30",
             "source": {
@@ -613,6 +664,52 @@
                 "source": "https://github.com/Laravel-Backpack/CRUD/tree/4.1.30"
             },
             "time": "2020-12-17T12:27:29+00:00"
+        },
+        {
+            "name": "balping/json-raw-encoder",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.com/balping/json-raw-encoder.git",
+                "reference": "e2b0ab888342b0716f1f0628e2fa13b345c5f276"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/balping%2Fjson-raw-encoder/repository/archive.zip?sha=e2b0ab888342b0716f1f0628e2fa13b345c5f276",
+                "reference": "e2b0ab888342b0716f1f0628e2fa13b345c5f276",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Balping\\JsonRaw\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Balázs Dura-Kovács"
+                }
+            ],
+            "description": "Encode arrays to json with raw JS objects (eg. callbacks) in them",
+            "keywords": [
+                "callback",
+                "encode",
+                "json"
+            ],
+            "support": {
+                "issues": "https://gitlab.com/api/v4/projects/6731265/issues"
+            },
+            "time": "2020-06-06T16:24:31+00:00"
         },
         {
             "name": "brick/math",
@@ -738,6 +835,66 @@
                 }
             ],
             "time": "2020-11-11T10:22:58+00:00"
+        },
+        {
+            "name": "consoletvs/charts",
+            "version": "6.5.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ConsoleTVs/Charts.git",
+                "reference": "0005d14e4fe6715f4146a4dc3b56add768233001"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ConsoleTVs/Charts/zipball/0005d14e4fe6715f4146a4dc3b56add768233001",
+                "reference": "0005d14e4fe6715f4146a4dc3b56add768233001",
+                "shasum": ""
+            },
+            "require": {
+                "balping/json-raw-encoder": "^1.0",
+                "illuminate/console": "^5.0|^6.0|^7.0|^8.0",
+                "illuminate/support": "^5.0|^6.0|^7.0|^8.0",
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ConsoleTVs\\Charts\\ChartsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ConsoleTVs\\Charts\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Èrik Campobadal Forés",
+                    "email": "soc@erik.cat"
+                }
+            ],
+            "description": "The laravel charting package",
+            "support": {
+                "issues": "https://github.com/ConsoleTVs/Charts/issues",
+                "source": "https://github.com/ConsoleTVs/Charts/tree/6.5.5"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/ConsoleTVs",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/ErikCampobadal",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2020-09-10T14:20:26+00:00"
         },
         {
             "name": "creativeorange/gravatar",
@@ -6273,6 +6430,80 @@
                 }
             ],
             "time": "2020-12-16T17:02:19+00:00"
+        },
+        {
+            "name": "thujohn/twitter",
+            "version": "2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/atymic/twitter.git",
+                "reference": "514c28023fcd2250bbb2120e0224b13f82cc5150"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/atymic/twitter/zipball/514c28023fcd2250bbb2120e0224b13f82cc5150",
+                "reference": "514c28023fcd2250bbb2120e0224b13f82cc5150",
+                "shasum": ""
+            },
+            "require": {
+                "atymic/tmhoauth": "0.8.6",
+                "ext-json": "*",
+                "illuminate/support": "~5.5 || ~6.0 || ~7.0 || ~8.0",
+                "php": ">7.2.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Thujohn\\Twitter\\TwitterServiceProvider"
+                    ],
+                    "aliases": {
+                        "Twitter": "Thujohn\\Twitter\\Facades\\Twitter"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Thujohn\\Twitter": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "thujohn",
+                    "email": "jonathan.thuau@gmail.com"
+                },
+                {
+                    "name": "atymic",
+                    "email": "atymicq@gmail.com",
+                    "homepage": "https://atymic.dev"
+                }
+            ],
+            "description": "Twitter API for Laravel",
+            "keywords": [
+                "laravel",
+                "laravel4",
+                "laravel5",
+                "twitter"
+            ],
+            "support": {
+                "issues": "https://github.com/atymic/twitter/issues",
+                "source": "https://github.com/atymic/twitter/tree/master"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/atymic",
+                    "type": "github"
+                }
+            ],
+            "abandoned": "atymic/twitter",
+            "time": "2020-09-09T00:05:36+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
