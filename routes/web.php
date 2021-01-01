@@ -1,7 +1,9 @@
 <?php
 
+use App\Events\ChartEvent;
 use App\Preprocessing\PreprocessingService;
 use Illuminate\Support\Facades\Route;
+use Pusher\Pusher;
 use Thujohn\Twitter\Facades\Twitter;
 
 /*
@@ -16,6 +18,6 @@ use Thujohn\Twitter\Facades\Twitter;
 */
 
 Route::get('/', function () {
-    $tweets = Twitter::getSearch(['q' => 'COVID -RT', 'tweet_mode' => 'extended', 'lang' => 'id', 'count' => 10, 'format' => 'array']);    
-    dd($tweets);
+    event(new ChartEvent('hello world'));
+    dd('OK');
 });

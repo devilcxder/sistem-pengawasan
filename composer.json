@@ -17,6 +17,7 @@
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
         "maatwebsite/excel": "^3.1",
+        "pusher/pusher-php-server": "~4.0",
         "rubix/ml": "^0.2.4",
         "sastrawi/sastrawi": "1",
         "thujohn/twitter": "^2.3"
