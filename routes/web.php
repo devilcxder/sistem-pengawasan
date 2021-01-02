@@ -1,6 +1,7 @@
 <?php
 
 use App\Events\ChartEvent;
+use App\Http\Controllers\ChartController;
 use App\Preprocessing\PreprocessingService;
 use Illuminate\Support\Facades\Route;
 use Pusher\Pusher;
@@ -21,3 +22,5 @@ Route::get('/', function () {
     event(new ChartEvent('hello world'));
     dd('OK');
 });
+
+Route::post('/chart/read-data', [ChartController::class, 'index'])->name('chart.read');
