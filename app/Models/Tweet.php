@@ -15,4 +15,9 @@ class Tweet extends Model
     {
         return $this->hasOne(DetailTweet::class);
     }    
+
+    public function tweet_created()
+    {
+        return $this->hasOne(DetailTweet::class);
+    }    
 }

@@ -105,22 +105,7 @@ class DatasetCrudController extends CrudController
             'type'      => 'upload',
             'upload'    => true,
             'disk'      => 'uploads'
-        ]);
-
-        CRUD::addField([   // date_range
-            'name'  => ['start_date', 'end_date'], // db columns for start_date & end_date
-            'label' => 'Event Date Range',
-            'type'  => 'date_range',
-        
-            // OPTIONALS
-            // default values for start_date & end_date
-            'default'            => ['2019-03-28 01:01', '2019-04-05 02:00'], 
-            // options sent to daterangepicker.js
-            'date_range_options' => [
-                'timePicker' => true,
-                'locale' => ['format' => 'DD/MM/YYYY HH:mm']
-            ]
-        ]);
+        ]);        
 
         CRUD::replaceSaveActions(
             [
@@ -144,6 +129,11 @@ class DatasetCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }    
+
+    protected function setupShowOperation()
+    {
+        $this->crud->denyAccess('delete');
     }
 
     public function store(DatasetRequest $request)
