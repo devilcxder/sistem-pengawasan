@@ -54,11 +54,12 @@ class CrawlingService
                 $insert_tweet->post_id = $tweet['post_id'];
                 $insert_tweet->username = $tweet['username'];
                 $insert_tweet->tweet = $tweet['tweet'];
-                $insert_tweet->tweet_prepro = $tweet_after_prepro[$key];
+                $insert_tweet->tweet_prepro = $tweet_after_prepro[$key]['result'];
+                $insert_tweet->word_cloud = $tweet_after_prepro[$key]['word_cloud'];
                 $insert_tweet->save();
 
                 // Prediction
-                $emotion = $estimator->predictSample([$tweet_after_prepro[$key]]);
+                $emotion = $estimator->predictSample([$tweet_after_prepro[$key]['result']]);
 
                 $insert_prediction->label = $emotion;
                 $insert_prediction->created_at = $tweet['created_at'];

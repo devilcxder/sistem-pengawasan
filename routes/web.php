@@ -5,6 +5,7 @@ use App\Http\Controllers\ChartController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\WordCloudController;
 use App\Models\Dataset;
+use App\Preprocessing\PreprocessingService;
 use Backpack\CRUD\app\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use Phpml\FeatureExtraction\TfIdfTransformer;
@@ -29,6 +30,12 @@ Route::get('/admin', [AdminController::class, 'redirect'])->name('backpack');
 
 Route::post('/chart/read-data', [ChartController::class, 'index'])->name('chart.read');
 Route::post('/word-cloud', [WordCloudController::class, 'index'])->name('word.cloud');
+
+Route::get('/prepro', function(){
+    $keyword = ["WNI Telah Divaksin Covid-19, Phita Beberkan Kondisinya Usai Mendapatkan Vaksinasi di Inggris | tvOne https://t.co/RBZZ8t34DS"];
+    $result = PreprocessingService::index($keyword);
+    dd($result[0]['result']);
+});
 
 Route::get('/keyword', function () {
     $samples = Dataset::select("textPrepro")->take(10)->get()->toArray();

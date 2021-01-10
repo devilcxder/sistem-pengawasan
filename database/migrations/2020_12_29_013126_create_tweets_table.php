@@ -20,7 +20,8 @@ class CreateTweetsTable extends Migration
             $table->string("post_id");
             $table->string("username");
             $table->longText("tweet");
-            $table->longText("tweet_prepro");            
+            $table->longText("tweet_prepro");
+            $table->longText("word_cloud");
         });
     }
 

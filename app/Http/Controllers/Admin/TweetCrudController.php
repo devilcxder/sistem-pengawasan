@@ -31,7 +31,7 @@ class TweetCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\Tweet::class);
         CRUD::setRoute('/tweet');
-        CRUD::setEntityNameStrings('tweet', 'tweets');
+        CRUD::setEntityNameStrings('tweet', 'tweet');
     }
 
     /**
@@ -122,6 +122,10 @@ class TweetCrudController extends CrudController
         $this->crud->addColumn([
             'name' => 'tweet',
             'label' => 'Tweet'
+        ]);                        
+        $this->crud->addColumn([
+            'name' => 'tweet_prepro',
+            'label' => 'Tweet Prepro'
         ]);                        
         CRUD::addColumn([
             // any type of relationship

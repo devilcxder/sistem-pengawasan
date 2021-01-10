@@ -18,21 +18,21 @@ class PreprocessingService
         //REMOVE URL # @
         $regex = "/\b((https?|ftp|file):\/\/|www\.)[-A-Z0-9+&@#\/%?=~_|$!:,.;]*[A-Z0-9+&@#\/%=~_|$]/i";
 
-        foreach($tweets as $tweet){
-            $text = preg_replace(array($regex, '/#\w+\s*/', '/@\w+\s*/'), '', $tweet);            
-    
-            //STEMMING        
-            $stemming =  $stemmer->stem($text);
-    
+        foreach($tweets as $key => $tweet){
+            $text = preg_replace(array($regex, '/@\w+\s*/'), '', $tweet);            
+
+            //Remove Symbol
+            $remove_symbol = strtolower(preg_replace("/[^a-zA-Z\s]/", " ", $text));            
+
             //STOPWORD REMOVAL
-            $stopWord = $stopword->remove($stemming);
-    
+            $remove_stopword = preg_replace("/\s\s+/", " ",$stopword->remove($remove_symbol));            
+                    
+            //STEMMING
+            $stemming =  $stemmer->stem($remove_stopword);            
+
             //FINAL PREPROCESSING
-            $prepro = trim(str_replace(array("\n", "\r"), " ", $stopWord));
-            $result = strtolower(preg_replace("/[^a-zA-Z\s]/", "", $prepro));
-            $result = preg_replace("/\s\s+/", " ", $result);
-            $result = rtrim($result, " ");
-            $tweet_after_prepro [] = $result;
+            $tweet_after_prepro [$key]['word_cloud'] = $remove_stopword;
+            $tweet_after_prepro [$key]['result'] = $stemming;            
         }        
         return $tweet_after_prepro;
     }

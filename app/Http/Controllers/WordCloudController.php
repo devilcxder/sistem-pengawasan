@@ -12,9 +12,9 @@ class WordCloudController extends Controller
 {
     public function index()
     {
-        $tweets = Tweet::select('tweet_prepro')->join('detail_tweets', 'tweets.id', '=', 'tweet_id')->where('label', '=', request()->emotion)->take(300)->get()->toArray();
+        $tweets = Tweet::select('word_cloud')->join('detail_tweets', 'tweets.id', '=', 'tweet_id')->where('label', '=', request()->emotion)->get()->toArray();
         foreach ($tweets as $tweet) {
-            $data[] = $tweet['tweet_prepro'];
+            $data[] = $tweet['word_cloud'];
         }
 
         $vectorizer = new TokenCountVectorizer(new WhitespaceTokenizer);

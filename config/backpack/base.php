@@ -24,7 +24,7 @@ return [
     // ----
 
     // Project name. Shown in the window title.
-    'project_name' => 'Sistem Monitoring COVID-19',
+    'project_name' => 'Sistem Pengawasan COVID-19',
 
     // When clicking on the admin panel's top-left logo/name,
     // where should the user be redirected?
@@ -72,13 +72,13 @@ return [
     // ------
 
     // Menu logo. You can replace this with an <img> tag if you have a logo.
-    'project_logo'   => '<b>Sistem</b>Monitoring',
+    'project_logo'   => '<b>Pengawasan</b>',
 
     // Show / hide breadcrumbs on admin panel pages.
     'breadcrumbs' => false,
 
     // Horizontal navbar classes. Helps make the admin panel look similar to your project's design.
-    'header_class' => 'app-header bg-light border-0 navbar',
+    'header_class' => 'app-header navbar navbar-color bg-green border-0',
     // For background colors use: bg-dark, bg-primary, bg-secondary, bg-danger, bg-warning, bg-success, bg-info, bg-blue, bg-light-blue, bg-indigo, bg-purple, bg-pink, bg-red, bg-orange, bg-yellow, bg-green, bg-teal, bg-cyan, bg-white
     // For links to be visible on different background colors use: "navbar-dark", "navbar-light", "navbar-color"
 
